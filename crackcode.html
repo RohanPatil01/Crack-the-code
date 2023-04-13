@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            background-color:brown;
+        } */
+        .text{
+            color: blueviolet;
+            display: inline-block;
+            font-size: larger;
+            font-weight: bolder;
+        }
+        h1{
+            text-align: center;
+            font-size: 55px;
+            color: goldenrod;
+        }
+        .num{
+            display: inline-block;
+        }
+        
+        button{
+            color: white;
+            background-color: aqua;
+            border: 2px;
+            border-color: aliceblue;
+        }
+
+    </style>
+    <script>
+    function generateRandomArray(min, max, length) {
+            var randomArray = [];
+            var availableValues = [];
+            for (var i = min; i < max; i++) {
+                availableValues.push(i);
+            }
+            for (var j = 0; j < length; j++) {
+                var randomIndex = Math.floor(Math.random() * availableValues.length);
+                var selectedValue = availableValues[randomIndex];
+                randomArray.push(selectedValue);
+                availableValues.splice(randomIndex, 1);
+            }
+            return randomArray;
+        }
+
+    function check(){
+        const c1 = document.getElementById("code1").value;
+        const c2 = document.getElementById("code2").value;
+        const c3 = document.getElementById("code3").value;
+        cl1 = c1.length;
+        cl2 = c2.length;
+        cl3 = c3.length;
+        var error = document.getElementById("error")
+        if (!isNaN(parseInt(c1)) && !isNaN(parseInt(c2)) && !isNaN(parseInt(c3)) && cl1 === 1 && cl2 === 1 && cl3 === 1 && (c1 != c2 && c2 != c3 && c1 != c3)) {
+            error.textContent = ""
+            Hints()
+        }
+        else if (cl1 != 1 && cl2 != 1 && cl3 != 1){
+            
+            // result.innerHTML = "";
+            error.textContent = "This field cannot be empty"
+            error.style.color = "red"
+            
+        }
+        else if (c1==c2 || c2==c3 || c1==c3){
+            // result.innerHTML = "";
+            error.textContent = "Please do not repeat the same digits !"
+            error.style.color = "red"
+        }
+        else {
+            // result.innerHTML = "";
+            error.textContent = "Please enter a valid number"
+            error.style.color = "red"
+
+        }
+    }
+    function Hints() {
+        const c1 = document.getElementById("code1").value;
+        const c2 = document.getElementById("code2").value;
+        const c3 = document.getElementById("code3").value;
+        var inputarray = [];
+        inputarray.push(c1);
+        inputarray.push(c2);
+        inputarray.push(c3);
+        inputarray = inputarray.map(function (digit) { return parseInt(digit) });
+
+        let a = 0;
+        while (a != 1) {
+            a = 0;
+            hint1 = generateRandomArray(0,9,3);
+            for (const i of inputarray) {
+                for (const j of hint1) {
+                    if (i === j) {
+                        a++;
+                        var same = i;
+                    }
+                }
+            }
+            try {
+                if (hint1.indexOf(same) != inputarray.indexOf(same)) {
+                    a = 0;
+                }
+            }
+            catch {
+                a
+            }
+        }
+        
+        a = 0;
+        while (a != 1) {
+            a = 0;
+            hint2 = generateRandomArray(0,9,3);
+            for (const i of inputarray) {
+                for (const j of hint2) {
+                    if (i === j) {
+                        a++;
+                        var same = i;
+                    }
+                }
+            }
+            try {
+                if (hint2.indexOf(same) === inputarray.indexOf(same)) {
+                    a = 0;
+                }
+            }
+            catch {
+                a
+            }
+        }
+        a = 0;
+        while (a != 2) {
+            a = 0;
+            hint3 = generateRandomArray(0, 9, 3);
+            for (const i of inputarray) {
+                for (const j of hint3) {
+                    if (i === j) {
+                        a++;
+                        same = i;
+                    }
+                }
+            
+                try {
+                    if (hint3.indexOf(same) === inputarray.indexOf(same)) {
+                        a = 0;
+                    }
+                }
+                catch {
+                    a
+                }
+            }
+
+        }
+        a = 0;
+        while (a != 1) {
+            hint4 = generateRandomArray(0, 9, 3);
+            a = 1;
+            for (const i of inputarray) {
+                for (const j of hint4) {
+                    if (i === j) {
+                        a = 0;
+                    }
+                }
+            }
+
+        }
+        a = 0;
+        while (a != 1) {
+            hint5 = generateRandomArray(0, 9, 3);
+            a = 0;
+            for (const i of inputarray) {
+                for (const j of hint5) {
+                    if (i === j) {
+                        a++;
+                        same = i;
+                    }
+                }
+            }
+            try {
+                if (hint5.indexOf(same) === inputarray.indexOf(same)) {
+                    a = 0;
+                }
+            }
+            catch {
+                a
+            }
+            if (hint2 === hint5) {
+                a = 0
+            }
+
+        }
+        hint1=hint1.join("");
+        hint2=hint2.join("");
+        hint3=hint3.join("");
+        hint4=hint4.join("");
+        hint5=hint5.join("");
+        result1.innerHTML = hint1 + " One number is correct and well placed";
+        result2.innerHTML = hint2 + " One number is correct but placed wrong";
+        result3.innerHTML = hint3 + " Two numbers are correct but placed wrong";
+        result4.innerHTML = hint4 + " Nothing is correct";
+        result5.innerHTML = hint5 + " One number is correct but placed wrong";
+    }
+    function next(num){
+        let n1 = document.getElementById("code1").value;
+        let n2 = document.getElementById("code2").value;
+        let n3 = document.getElementById("code3").value;
+        num1 = n1.length;
+        num2 = n2.length;
+        num3 = n3.length;
+        if (num === 1) {
+            if (num1 === 1) {
+                if (num2 != 1) {
+                    document.getElementById("code2").focus();
+                }
+                else if (num3 != 1) {
+                    document.getElementById("code3").focus();
+                }
+            }
+            else if (num1 === 0) {
+                document.getElementById("code1").focus();
+            }
+            else if (num1 > 1) {
+                document.getElementById("code1").value = n1.charAt(0);
+                document.getElementById("code2").value = n1.charAt(1);
+                document.getElementById("code2").focus();
+            }
+        }
+        else if (num === 2) {
+            if (num2 === 1) {
+                if (num3 != 1) {
+                    document.getElementById("code3").focus();
+                }
+                else if (num1 != 1) {
+                    document.getElementById("code1").focus();
+                }
+            }
+            else if (num2 === 0) {
+                document.getElementById("code1").focus();
+            }
+            else if (num2 > 1) {
+                document.getElementById("code2").value = n2.charAt(0);
+                document.getElementById("code3").value = n2.charAt(1);
+                document.getElementById("code3").focus()
+            }
+        }
+        else if (num === 3) {
+            if (num3 === 1) {
+                if (num1 != 1) {
+                    document.getElementById("code1").focus();
+                }
+                else if (num2!= 1) {
+                    document.getElementById("code2").focus();
+                }
+            }
+            else if (num3 === 0) {
+                document.getElementById("code2").focus();
+            }
+            else if(num3>1){
+                document.getElementById("code3").value = n3.charAt(0);
+            }
+        }
+        
+    };
+    // function Check(){
+    //     let n1 = document.getElementById("code1").value;
+    //     let n2 = document.getElementById("code2").value;
+    //     let n3 = document.getElementById("code3").value;
+    //     num1 = n1.length;
+    //     num2 = n2.length;
+    //     num3 = n3.length;
+    //     console.log(num1+num2+num3)
+    //     var myButton = document.getElementById("b1");
+    //     if (num1!=1 && num2!=1 && num3!=1){
+    //         console.log(num1 + num2 + num3)
+    //         myButton.style.display="none";
+    //     }
+    //     else if(typeof (n1) != "number" && typeof (n2) != "number" && typeof (n3) != "number" ){
+    //         myButton.style.display = "none";
+    //     }
+    // }
+    // function Check(){
+    //     let n1 = document.getElementById("code1").value;
+    //     let n2 = document.getElementById("code2").value;
+    //     let n3 = document.getElementById("code3").value;
+    //     num1 = n1.length;
+    //     num2 = n2.length;
+    //     num3 = n3.length;
+    //     n1=Number(n1);
+    //     n2=Number(n2);
+    //     n3=Number(n3);
+    //     var myButton = null
+    //     if (num1!=1 && num2!=1 && num3!=1){
+    //         myButton= false;
+    //         document.getElementById("b1").disabled = true;
+    //         console.log(num1+"this")
+            
+    //     }
+    //     else if(typeof (n1) == "NaN" && typeof (n2) == "NaN" && typeof (n3) == "NaN" ){
+    //         document.getElementById("b1").disabled = true;
+    //     }
+    //     else {
+    //         document.getElementById("b1").disabled = false;
+    //         myButton= true;
+    //         console.log("thisis")
+    //     }
+    // }
+  
+    </script>
+</head>
+<body>
+    <h1>Crack The Code</h1>
+    <div class="text">
+        Enter your code
+    </div>
+    <div class="inputclass" id="myInput">
+        <input type="text" id="code1" placeholder="#" pattern="[0-9]" oninput="next(1)">
+        <input type="text" id="code2" placeholder="#" pattern="[0-9]" oninput="next(2)">
+        <input type="text" id="code3" placeholder="#" pattern="[0-9]" oninput="next(3)">
+        <span id="error"></span>
+    </div>
+
+    <div class="btn">
+        <button onclick="check()" id="b1">Generate the clues</button>
+    </div>
+    <div id="result">
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+        <p id="result4"></p>
+        <p id="result5"></p>
+    </div>
+
+    <script>
+        var input = document.getElementById("myInput");
+        input.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("b1").click();
+                }
+            });
+    </script>
+</body>
+</html>
