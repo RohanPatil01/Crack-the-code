@@ -1,0 +1,143 @@
+* {
+    background-color: black;
+}
+
+.text {
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    padding: 10px;
+}
+
+h1 {
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    /* font-family: 'Trebuchet MS', sans-serif; */
+    text-shadow: 2px 2px red;
+}
+
+
+#myInput input {
+    width: 50px;
+    height: 70px;
+    margin: 10px 10px 50px 10px;
+    border: 2px solid white;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+
+#myInput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#code1,
+#code2,
+#code3P {
+    height: 20px;
+    widows: 2px;
+}
+
+
+button {
+    width: 250px;
+    height: 50px;
+    border: 2px solid white;
+    text-align: center;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+    text-transform: capitalize;
+
+}
+#new{
+    border-radius: 0px;
+    background-color: transparent;
+    color: aqua;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 2px solid aqua;
+}
+
+
+#new:hover{
+    width: 270px;
+    height: 50px;
+    border: 2px solid white;
+    text-align: center;
+    
+    background-color: goldenrod;
+    display: block;
+    margin: 0 auto;
+    font-size: 22px;
+    color: black;
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+#result {
+    margin: 50px 20px 0 100px ;
+    color: goldenrod;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+footer {
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 20px;
+    color: #777;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#b1:hover {
+    width: 270px;
+    height: 50px;
+    border: 2px solid white;
+    text-align: center;
+    background-color: aqua;
+    display: block;
+    margin: 0 auto;
+    font-size: 22px;
+    color: black;
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+}
+
+#div2{
+    
+    margin-right: 316px;
+    
+    margin-top: 61px;
+    padding-left: 119px;
+}
+
+#final{
+    font-size: 50px;
+    color: aqua;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+}

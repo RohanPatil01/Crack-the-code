@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crack The Code</title>
+    <style>
+        *{
+            background-color: #000000;
+        }
+        .buttons{
+            text-align: center;
+        }
+        
+        
+        h1{
+            color: aqua;
+            font-size: 80px;
+            text-align: center;
+            /* font-family: 'Trebuchet MS', sans-serif; */
+            text-shadow: 1px 1px #ffffff;
+        }
+        
+        
+        #Play,#Create{
+            margin: 25px 50px;
+            padding: 10px 45px;
+            border: 2px solid #17C3B2;
+            position: relative;
+            overflow:hidden;
+            background-color: transparent;
+            text-align: center;
+            font-size: 25px;
+            text-transform: uppercase;
+            transition: .3s;
+            z-index: 1;
+            font-family: inherit;
+            color: #17C3B2;
+        }
+        
+        #Play::before,#Create::before {
+            content: '';
+            width: 300%;
+            height: 00;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: #17c3b2;
+            transition: .5s ease;
+            display: inline-block;
+            z-index: -1;
+        }
+        #Play:hover::before, #Create:hover::before{
+            width: 165px;
+            height: 165px;
+        }
+        
+        #Play:hover,#Create:hover {
+            color: black;
+        }
+        button{
+            border: 0;
+        }
+        footer{
+            background-color: transparent;
+            padding: 10px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 20px;
+            color: #777;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+    </style>
+</head>
+<body>
+    <h1 >Crack The Code</h1>
+    <div class="buttons">
+        <a href="play.html"><button id="Play">Play<button></a>
+        <a href="crackcode.html"><button id="Create">Create<button></a>
+    </div>
+    <footer><p>&copy; 2023 Rohan Patil. All rights reserved.</p></footer>
+</body>
+</html>
