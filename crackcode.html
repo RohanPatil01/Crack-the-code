@@ -4,34 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* *{
-            background-color:brown;
-        } */
-        .text{
-            color: blueviolet;
-            display: inline-block;
-            font-size: larger;
-            font-weight: bolder;
-        }
-        h1{
-            text-align: center;
-            font-size: 55px;
-            color: goldenrod;
-        }
-        .num{
-            display: inline-block;
-        }
-        
-        button{
-            color: white;
-            background-color: aqua;
-            border: 2px;
-            border-color: aliceblue;
-        }
-
-    </style>
+    <title>Crack The Code</title>
+    <link rel="stylesheet" href="crackcode.css">
     <script>
     function generateRandomArray(min, max, length) {
             var randomArray = [];
@@ -60,21 +34,32 @@
             error.textContent = ""
             Hints()
         }
-        else if (cl1 != 1 && cl2 != 1 && cl3 != 1){
+        else if (cl1 != 1 || cl2 != 1 || cl3 != 1){
             
             // result.innerHTML = "";
-            error.textContent = "This field cannot be empty"
+            error.textContent = "These fields cannot be empty"
+            error.style.fontFamily="sans-serif"
+            error.style.textAlign="center"
+            error.style.padding="0px 0px 30px 0px"
             error.style.color = "red"
             
         }
         else if (c1==c2 || c2==c3 || c1==c3){
             // result.innerHTML = "";
             error.textContent = "Please do not repeat the same digits !"
+            error.style.fontFamily="sans-serif"
+            error.style.textAlign="center"
+            error.style.padding="0px 0px 30px 0px"
+            error.style.color = "red"
             error.style.color = "red"
         }
         else {
             // result.innerHTML = "";
-            error.textContent = "Please enter a valid number"
+            error.textContent = "Please enter a valid number !"
+            error.style.fontFamily="sans-serif"
+            error.style.textAlign="center"
+            error.style.padding="0px 0px 30px 0px"
+            error.style.color = "red"
             error.style.color = "red"
 
         }
@@ -198,7 +183,7 @@
         hint3=hint3.join("");
         hint4=hint4.join("");
         hint5=hint5.join("");
-        result1.innerHTML = hint1 + " One number is correct and well placed";
+        result1.innerHTML =  hint1 + " One number is correct and well placed";
         result2.innerHTML = hint2 + " One number is correct but placed wrong";
         result3.innerHTML = hint3 + " Two numbers are correct but placed wrong";
         result4.innerHTML = hint4 + " Nothing is correct";
@@ -320,8 +305,8 @@
         <input type="text" id="code1" placeholder="#" pattern="[0-9]" oninput="next(1)">
         <input type="text" id="code2" placeholder="#" pattern="[0-9]" oninput="next(2)">
         <input type="text" id="code3" placeholder="#" pattern="[0-9]" oninput="next(3)">
-        <span id="error"></span>
     </div>
+    <div id="error"></div>
 
     <div class="btn">
         <button onclick="check()" id="b1">Generate the clues</button>
@@ -333,6 +318,9 @@
         <p id="result4"></p>
         <p id="result5"></p>
     </div>
+    <footer>
+        <p>&copy; 2023 Rohan Patil. All rights reserved.</p>
+    </footer>
 
     <script>
         var input = document.getElementById("myInput");
