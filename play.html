@@ -34,42 +34,49 @@
                 error.textContent = ""
                 win()
             }
-            else if (cl1 != 1 || cl2 != 1 || cl3 != 1) {
+            else{
+                shake();
+                clear();
 
-                // result.innerHTML = "";
-                error.textContent = "These fields cannot be empty"
-                error.style.fontFamily = "sans-serif"
-                error.style.textAlign = "center"
-                // result.innerHTML = "";
-                error.style.padding = "0px 0px 30px 0px"
-                error.style.color = "red"
+                if (cl1 != 1 || cl2 != 1 || cl3 != 1) {
+                    // result.innerHTML = "";
+                    error.textContent = "These fields cannot be empty"
+                    error.style.fontFamily = "sans-serif"
+                    error.style.textAlign = "center"
+                    // result.innerHTML = "";
+                    error.style.padding = "0px 0px 30px 0px"
+                    error.style.color = "red"
 
-            }
-            else if (c1 == c2 || c2 == c3 || c1 == c3) {
-                // result.innerHTML = "";
-                error.textContent = "Please do not repeat the same digits !"
-                error.style.fontFamily = "sans-serif"
-                error.style.textAlign = "center"
-                error.style.padding = "0px 0px 30px 0px"
-                error.style.color = "red"
-                error.style.color = "red"
-            }
-            else {
-                // result.innerHTML = "";
-                error.textContent = "Please enter a valid number !"
-                error.style.fontFamily = "sans-serif"
-                error.style.textAlign = "center"
-                error.style.padding = "0px 0px 30px 0px"
-                error.style.color = "red"
-                error.style.color = "red"
+                }
+                else if (c1 == c2 || c2 == c3 || c1 == c3) {
+                    // result.innerHTML = "";
+                    error.textContent = "Please do not repeat the same digits !"
+                    error.style.fontFamily = "sans-serif"
+                    error.style.textAlign = "center"
+                    error.style.padding = "0px 0px 30px 0px"
+                    error.style.color = "red"
+                    error.style.color = "red"
+                }
+                else {
+                    // result.innerHTML = "";
+                    error.textContent = "Please enter a valid number !"
+                    error.style.fontFamily = "sans-serif"
+                    error.style.textAlign = "center"
+                    error.style.padding = "0px 0px 30px 0px"
+                    error.style.color = "red"
+                    error.style.color = "red"
 
+                }
             }
+
         }
         function newcode() {
             var input = document.getElementById("input")
-            input.reset();
+            clear();
             queArray = generateRandomArray(0, 9, 3);
             queArray1 = queArray.map(function (digit) { return parseInt(digit) });
+            
+
             Hints()
         }
 
@@ -183,6 +190,7 @@
                 }
 
             }
+            queArray1 = queArray1.join("")
             hint1 = hint1.join("");
             hint2 = hint2.join("");
             hint3 = hint3.join("");
@@ -193,6 +201,7 @@
             result3.innerHTML = hint3 + " Two numbers are correct but placed wrong";
             result4.innerHTML = hint4 + " Nothing is correct";
             result5.innerHTML = hint5 + " One number is correct but placed wrong";
+
         }
         function next(num) {
             let n1 = document.getElementById("code1").value;
@@ -268,19 +277,40 @@
             var final = document.getElementById("final")
             var input = document.getElementById("input")
             ansarray=ansarray.join("")
-            queArray1=queArray1.join("")
+            final.innerHTML=""
 
             if (queArray1 == ansarray) {
 
                 final.innerHTML = ansarray + " is the correct answer ! ! !";
-                input.reset();
 
             }
             else {
+                shake();
                 final.innerHTML = "Try Again ! ! !";
+                document.getElementById("code1").focus();
+                setTimeout(function () {
+                    tryagain();
+                }, 3000);
+
 
                 }
             }
+    function shake(){
+        const input = document.getElementById("myInput");
+        input.classList.add('shake');
+        setTimeout(() => {
+            input.classList.remove('shake');
+        }, 500);
+    }
+    function tryagain(){
+        final.innerHTML = "";
+    }
+
+    function clear(){
+        var input = document.getElementById("input")
+        input.reset();
+    }
+
     </script>
 
 
