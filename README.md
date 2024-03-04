@@ -13,8 +13,8 @@ Welcome to **Crack the Code** - a challenging number puzzle game! 🚀
 
 2. **Open the Game:**
 
-Navigate to the project directory.
-Open index.html in your favorite browser.
+- Navigate to the project directory.
+- Open `index.html` in your favorite browser.
 
 ## 💡 How to Play
 - Enter a three-digit code and click on Generate the Clues.
@@ -28,16 +28,19 @@ Check out the live demo of the game hosted on [Netlify](https://crackthecodebyro
 - Responsive design for a seamless experience on all devices.
 
 ## 🤖 Code Generation Algorithm
-Curious about how hints are generated? Check out the [Crack the code.ipynb](/Crack-the-code.ipynb) for better understanding of the game.
+Curious about how hints are generated? Check out the [Crack the code.ipynb](/Crack-the-code.ipynb) for a better understanding of the game.
 
 ## 🖼️ Screenshots
+### Home Page
 ![Home Page](images/main.png)
+### Play Section
 ![Play page](images/play.png)
+### Create Section
 ![Create Page](images/create.png)
 
 
 ## 🤝 Contributing
-Found a bug or have a feature request? Feel free to open an issue or create a pull request.
+Did you find a bug or have a feature request? Feel free to open an issue or create a pull request.
 
 ## 📝 License
 This project is licensed under the MIT License - see the [LICENSE](/LICENSE.txt) file for details.
